@@ -1,0 +1,40 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+**/bin/
+**/obj/
+[Dd]ebug/
+[Rr]elease/
+
+# IDE settings
+.idea/
+.vscode/
+
+# Temporary files
+*.log
+*.tmp
+*.bak
+*~
+*.cache
+
+# Test results
+TestResults/
+*.trx
+
+# NuGet packages
+*.nupkg
+packages/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Local secrets
+*.pfx
+*.p12
+*.keystore
