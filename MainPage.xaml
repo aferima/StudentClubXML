@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:StudentClubsXml.Models"
+    xmlns:vm="clr-namespace:StudentClubsXml.ViewModels"
+    x:Class="StudentClubsXml.MainPage"
+    x:DataType="vm:MainViewModel"
+    Title="Студентські гуртки та семінари"
+    BackgroundColor="#FAFAFA">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="24"
+            Spacing="18"
+            MaximumWidthRequest="1100">
+            <Label
+                Text="Студентські гуртки та семінари"
+                FontSize="26"
+                FontAttributes="Bold"
+                TextColor="#222222" />
+
+            <Label
+                Text="Лабораторна робота №2 — Робота з XML"
+                FontSize="14"
+                TextColor="#666666" />
+
+            <Border
+                Stroke="#DDDDDD"
+                StrokeShape="RoundRectangle 10"
+                BackgroundColor="White"
+                Padding="16">
+
+                <VerticalStackLayout Spacing="12">
+
+                    <Label
+                        Text="Робота з файлами"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        TextColor="#222222" />
+
+                    <HorizontalStackLayout Spacing="10">
+
+                        <Button
+                            Text="Завантажити XML"
+                            Command="{Binding LoadFileCommand}" />
+
+                        <Button
+                            Text="Вибрати XSL"
+                            Command="{Binding SelectXslCommand}" />
+
+                        <Button
+                            Text="Створити HTML"
+                            Command="{Binding TransformCommand}" />
+
+                    </HorizontalStackLayout>
+
+                </VerticalStackLayout>
+            </Border>
+
+            <Border
+                Stroke="#DDDDDD"
+                StrokeShape="RoundRectangle 10"
+                BackgroundColor="White"
+                Padding="16">
+
+                <VerticalStackLayout Spacing="10">
+
+                    <Label
+                        Text="Метод аналізу XML"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        TextColor="#222222" />
+
+                    <Picker
+                        Title="Виберіть метод"
+                        SelectedItem="{Binding SelectedMethod, Mode=TwoWay}">
+
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type models:SearchType}">
+                                <x:Static Member="models:SearchType.Sax" />
+                                <x:Static Member="models:SearchType.Dom" />
+                                <x:Static Member="models:SearchType.Linq" />
+                            </x:Array>
+                        </Picker.ItemsSource>
+
+                    </Picker>
+
+                </VerticalStackLayout>
+            </Border>
+
+            <Border
+                Stroke="#DDDDDD"
+                StrokeShape="RoundRectangle 10"
+                BackgroundColor="White"
+                Padding="16">
+
+                <VerticalStackLayout Spacing="14">
+
+                    <Label
+                        Text="Параметри пошуку"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        TextColor="#222222" />
+
+                    <Grid
+                        ColumnDefinitions="*,*"
+                        RowDefinitions="Auto,Auto,Auto,Auto"
+                        ColumnSpacing="16"
+                        RowSpacing="12">
+
+                        <VerticalStackLayout Grid.Row="0" Grid.Column="0">
+                            <Label Text="Назва гуртка / семінару" />
+                            <Entry
+                                Placeholder="Введіть назву або ключове слово"
+                                Text="{Binding Criteria.Name, Mode=TwoWay}" />
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Grid.Row="0" Grid.Column="1">
+                            <Label Text="Факультет" />
+                            <Picker
+                                Title="Усі факультети"
+                                ItemsSource="{Binding AttributeValues[faculty]}"
+                                SelectedItem="{Binding Criteria.Faculty, Mode=TwoWay}" />
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Grid.Row="1" Grid.Column="0">
+                            <Label Text="Кафедра" />
+                            <Picker
+                                Title="Усі кафедри"
+                                ItemsSource="{Binding AttributeValues[department]}"
+                                SelectedItem="{Binding Criteria.Department, Mode=TwoWay}" />
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Grid.Row="1" Grid.Column="1">
+                            <Label Text="Тип" />
+                            <Picker
+                                Title="Усі типи"
+                                ItemsSource="{Binding AttributeValues[type]}"
+                                SelectedItem="{Binding Criteria.Type, Mode=TwoWay}" />
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Grid.Row="2" Grid.Column="0">
+                            <Label Text="Курс" />
+                            <Picker
+                                Title="Усі курси"
+                                ItemsSource="{Binding AttributeValues[course]}"
+                                SelectedItem="{Binding Criteria.Course, Mode=TwoWay}" />
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Grid.Row="2" Grid.Column="1">
+                            <Label Text="День проведення" />
+                            <Picker
+                                Title="Усі дні"
+                                ItemsSource="{Binding AttributeValues[day]}"
+                                SelectedItem="{Binding Criteria.Day, Mode=TwoWay}" />
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Grid.Row="3" Grid.Column="0">
+                            <Label Text="Тематика" />
+                            <Entry
+                                Placeholder="Ключове слово"
+                                Text="{Binding Criteria.Topic, Mode=TwoWay}" />
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Grid.Row="3" Grid.Column="1">
+                            <Label Text="Керівник" />
+                            <Entry
+                                Placeholder="Прізвище або ім'я"
+                                Text="{Binding Criteria.Leader, Mode=TwoWay}" />
+                        </VerticalStackLayout>
+
+                    </Grid>
+
+                    <HorizontalStackLayout Spacing="10">
+                        <Button
+                            Text="Пошук"
+                            Command="{Binding SearchCommand}" />
+
+                        <Button
+                            Text="Clear"
+                            Command="{Binding ClearCommand}"
+                            BackgroundColor="#777777" />
+                    </HorizontalStackLayout>
+
+                </VerticalStackLayout>
+            </Border>
+
+            <Border
+                Stroke="#DDDDDD"
+                StrokeShape="RoundRectangle 10"
+                BackgroundColor="White"
+                Padding="16">
+
+                <VerticalStackLayout Spacing="12">
+
+                    <Label
+                        Text="Результати пошуку"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        TextColor="#222222" />
+
+                    <CollectionView
+                        ItemsSource="{Binding Results}"
+                        HeightRequest="340"
+                        SelectionMode="None">
+
+                        <CollectionView.EmptyView>
+                            <Label
+                                Text="Немає результатів. Завантажте XML та виконайте пошук."
+                                TextColor="#777777"
+                                Padding="12" />
+                        </CollectionView.EmptyView>
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="models:Club">
+
+                                <Border
+                                    Stroke="#E0E0E0"
+                                    StrokeShape="RoundRectangle 8"
+                                    BackgroundColor="#FAFAFA"
+                                    Padding="12"
+                                    Margin="0,0,0,8">
+
+                                    <VerticalStackLayout Spacing="5">
+
+                                        <Label
+                                            Text="{Binding Name}"
+                                            FontSize="16"
+                                            FontAttributes="Bold"
+                                            TextColor="#222222" />
+
+                                        <Label
+                                            Text="{Binding Faculty}"
+                                            FontSize="13" />
+
+                                        <Label
+                                            Text="{Binding Department}"
+                                            FontSize="13" />
+
+                                        <HorizontalStackLayout Spacing="12">
+                                            <Label
+                                                Text="{Binding Day}"
+                                                FontAttributes="Bold" />
+
+                                            <Label Text="{Binding Time}" />
+                                        </HorizontalStackLayout>
+
+                                        <Label
+                                            Text="{Binding TypeDisplay, StringFormat='Тип: {0}'}" />
+
+                                        <Label
+                                            Text="{Binding CourseDisplay, StringFormat='Курс: {0}'}" />
+
+                                        <Label
+                                            Text="{Binding TopicDisplay, StringFormat='Тематика: {0}'}" />
+
+                                        <Label
+                                            Text="{Binding Starosta, StringFormat='Староста: {0}'}" />
+
+                                        <Label
+                                            Text="{Binding Leader, StringFormat='Керівник: {0}'}" />
+
+                                    </VerticalStackLayout>
+                                </Border>
+
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+
+                    </CollectionView>
+
+                </VerticalStackLayout>
+            </Border>
+
+            <Label
+                Text="{Binding StatusMessage}"
+                FontSize="13"
+                TextColor="#555555" />
+
+            <Button
+                Text="Вийти з програми"
+                Command="{Binding ExitCommand}"
+                BackgroundColor="#777777"
+                HorizontalOptions="End" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

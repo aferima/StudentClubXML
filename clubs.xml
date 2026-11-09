@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<clubs>
+  <club id="1" name="Клуб програмістів" type="гурток" faculty="Факультет комп'ютерних наук" department="Кафедра програмної інженерії" course="1" topic="Алгоритми та C++">
+    <meeting day="Понеділок" time="15:30"/>
+    <starosta>Коваленко Марія Ігорівна</starosta>
+    <leader>Петренко Олег Васильович</leader>
+  </club>
+  <club id="2" name="Семінар з дискретної математики" type="семінар" faculty="Факультет комп'ютерних наук" department="Кафедра дискретного аналізу" course="1" topic="Теорія графів">
+    <meeting day="Вівторок" time="14:00"/>
+    <starosta>Шевченко Андрій Петрович</starosta>
+    <leader>Мельник Ірина Олексіївна</leader>
+  </club>
+  <club id="3" name="Гурток штучного інтелекту" faculty="Факультет комп'ютерних наук" department="Кафедра інтелектуальних систем" course="3" topic="Машинне навчання">
+    <meeting day="Середа" time="16:00"/>
+    <starosta>Бондаренко Софія Дмитрівна</starosta>
+    <leader>Ткаченко Віктор Миколайович</leader>
+  </club>
+  <club id="4" name="Математичний семінар" type="семінар" faculty="Факультет математики" department="Кафедра алгебри" topic="Лінійна алгебра">
+    <meeting day="Четвер" time="13:20"/>
+    <starosta>Гончар Наталія Сергіївна</starosta>
+    <leader>Кравченко Дмитро Анатолійович</leader>
+  </club>
+  <club id="5" name="Гурток веб-розробки" type="гурток" faculty="Факультет інформаційних технологій" department="Кафедра програмної інженерії" course="2">
+    <meeting day="Понеділок" time="17:00"/>
+    <starosta>Лисенко Богдан Романович</starosta>
+    <leader>Савченко Оксана Юріївна</leader>
+  </club>
+  <club id="6" name="Англійський розмовний клуб" faculty="Факультет іноземних мов" department="Кафедра англійської філології">
+    <meeting day="П'ятниця" time="15:00"/>
+    <starosta>Руденко Аліна Вікторівна</starosta>
+    <leader>Олійник Тетяна Іванівна</leader>
+  </club>
+  <club id="7" name="Семінар з математичного аналізу" type="семінар" faculty="Факультет математики" department="Кафедра математичного аналізу" course="1" topic="Границі та ряди">
+    <meeting day="Вівторок" time="16:30"/>
+    <starosta>Мазур Єгор Олександрович</starosta>
+    <leader>Павленко Леся Степанівна</leader>
+  </club>
+  <club id="8" name="Гурток кібербезпеки" type="гурток" faculty="Факультет інформаційних технологій" department="Кафедра кібербезпеки" course="4" topic="Захист мереж">
+    <meeting day="Четвер" time="18:00"/>
+    <starosta>Данилюк Максим Євгенович</starosta>
+    <leader>Гриценко Анатолій Павлович</leader>
+  </club>
+</clubs>
