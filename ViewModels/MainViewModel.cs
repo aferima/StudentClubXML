@@ -1,4 +1,4 @@
-﻿using System.Collections.ObjectModel;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
@@ -250,7 +250,7 @@ public class MainViewModel : INotifyPropertyChanged
 
             string outputPath = Path.Combine(directory, $"{fileName}_{DateTime.Now:yyyyMMdd_HHmmss_fff}.html");
 
-            _transformer.Transform(_xmlPath, _xslPath, outputPath);
+            _transformer.Transform(_xmlPath, _xslPath, outputPath, Criteria);
 
             StatusMessage = "HTML-файл успішно створено.";
 
